@@ -8,12 +8,12 @@
 ![Google Sheets](https://img.shields.io/badge/Reporting-Google%20Sheets-green)
 ![Role](https://img.shields.io/badge/Role-Software%20Tester%20%2F%20QA-brightgreen)
 
-## 📌 ภาพรวมโปรเจกต์ (Overview)
+## ภาพรวมโปรเจกต์ (Overview)
 โปรเจกต์จำลองการทดสอบฐานข้อมูล (Database Testing) สำหรับระบบ E-Commerce โดยเน้นการออกแบบโครงสร้างตาราง (Database Schema) การเตรียมข้อมูลจำลอง (Mock Data) และการเขียน **SQL Queries** เพื่อตรวจจับข้อผิดพลาดของข้อมูล (Data Quality, Data Integrity, Edge Cases และ Business Logic Validation)[cite: 1, 2, 3, 4, 5, 6]
 
 ---
 
-## 🛠️ เครื่องมือและเทคโนโลยีที่ใช้ (Tools & Technologies)
+## เครื่องมือและเทคโนโลยีที่ใช้ (Tools & Technologies)
 * **ระบบจัดการฐานข้อมูล (DBMS):** Microsoft SQL Server[cite: 1]
 * **เครื่องมือจัดการ (GUI Tool):** SQL Server Management Studio (SSMS)[cite: 1]
 * **การทำรายงานและเอกสาร (Reporting):** Google Sheets[cite: 7]
@@ -21,7 +21,7 @@
 
 ---
 
-## 📐 โครงสร้างฐานข้อมูล (Database Schema)
+## โครงสร้างฐานข้อมูล (Database Schema)
 ฐานข้อมูลจำลองประกอบด้วย 3 ตารางหลัก:
 1. **`Users`**: เก็บข้อมูลผู้ใช้งาน (`UserID`, `Username`, `Email`, `CreatedDate`)[cite: 2]
 2. **`Products`**: เก็บข้อมูลรายการสินค้า (`ProductID`, `ProductName`, `Price`, `StockQuantity`)[cite: 2]
@@ -29,8 +29,8 @@
 
 ---
 
-## 🧪 เคสการทดสอบและ SQL สคริปต์ (Test Scenarios & SQL Queries)
-### 1. Data Quality Check: ตรวจสอบรูปแบบ Email ผู้ใช้งาน
+## เคสการทดสอบและ SQL สคริปต์ (Test Scenarios & SQL Queries)
+## 1. Data Quality Check: ตรวจสอบรูปแบบ Email ผู้ใช้งาน
  **วัตถุประสงค์:** ตรวจสอบว่ามีข้อมูลผู้ใช้งานที่บันทึกรูปแบบ Email ไม่ถูกต้องตามมาตรฐานหรือไม่
 ```sql
 SELECT UserID, Username, Email 
@@ -65,4 +65,4 @@ JOIN Products p ON o.OrderID = p.ProductID
 WHERE o.TotalAmount != p.Price;
 
 ## ลิงก์รายงานฉบับเต็ม (Live Reports)
-รายงาน Bug Report และ Schema บน Google Sheets: ดูรายงานฉบับเต็ม ## https://docs.google.com/spreadsheets/d/1S7haySpTXqFFp9vpX3vkCCKobKwrUlyJBQG-tR_dGwg/edit?usp=sharing
+รายงาน Bug Report และ Schema บน Google Sheets: ดูรายงานฉบับเต็ม https://docs.google.com/spreadsheets/d/1S7haySpTXqFFp9vpX3vkCCKobKwrUlyJBQG-tR_dGwg/edit?usp=sharing
