@@ -37,14 +37,14 @@ SELECT UserID, Username, Email
 FROM Users 
 WHERE Email NOT LIKE '%@%.%';
 
-2. Business Logic Check: ตรวจสอบสินค้าที่สต็อกหมด
+## 2. Business Logic Check: ตรวจสอบสินค้าที่สต็อกหมด
 วัตถุประสงค์: ตรวจสอบรายการสินค้าที่มีจำนวนสต็อกเป็น 0 เพื่อยืนยันการเปลี่ยนสถานะเป็น Out of Stock[cite: 6]
 
 SELECT ProductID, ProductName, StockQuantity 
 FROM Products 
 WHERE StockQuantity <= 0;
 
-3. Data Integrity Check: ตรวจสอบคำสั่งซื้อกำพ้อง (Orphan Records)
+## 3. Data Integrity Check: ตรวจสอบคำสั่งซื้อกำพ้อง (Orphan Records)
 วัตถุประสงค์: ตรวจสอบว่ามีรายการ Orders ใดบ้างที่อ้างอิงถึง UserID ที่ไม่มีตัวตนจริงในระบบ[cite: 6]
 
 SELECT o.OrderID, o.UserID, o.TotalAmount 
@@ -52,7 +52,7 @@ FROM Orders o
 LEFT JOIN Users u ON o.UserID = u.UserID
 WHERE u.UserID IS NULL;
 
-4. Business Logic Check: ตรวจสอบยอดรวมคำสั่งซื้อ
+## 4. Business Logic Check: ตรวจสอบยอดรวมคำสั่งซื้อ
 วัตถุประสงค์: ตรวจสอบความถูกต้องของการคำนวณยอดเงินรวม (TotalAmount) เทียบกับราคาสินค้าจริง
 
 SELECT 
@@ -64,5 +64,5 @@ FROM Orders o
 JOIN Products p ON o.OrderID = p.ProductID
 WHERE o.TotalAmount != p.Price;
 
-ลิงก์รายงานฉบับเต็ม (Live Reports)
-รายงาน Bug Report และ Schema บน Google Sheets: ดูรายงานฉบับเต็ม https://docs.google.com/spreadsheets/d/1S7haySpTXqFFp9vpX3vkCCKobKwrUlyJBQG-tR_dGwg/edit?usp=sharing
+## ลิงก์รายงานฉบับเต็ม (Live Reports)
+รายงาน Bug Report และ Schema บน Google Sheets: ดูรายงานฉบับเต็ม ## https://docs.google.com/spreadsheets/d/1S7haySpTXqFFp9vpX3vkCCKobKwrUlyJBQG-tR_dGwg/edit?usp=sharing
